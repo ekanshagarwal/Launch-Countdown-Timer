@@ -1,0 +1,306 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --font: "Red Hat Display", sans-serif;
+  --corner: rgba(0, 0, 0, 0.623);
+  --numColor: hsl(345, 95%, 68%);
+  --upperCard: hsl(235, 26%, 20%);
+  --lowerCard: hsl(236, 21%, 26%);
+}
+
+body {
+  background-color: hsl(272deg 20% 13% / 99%);
+  font-family: var(--font);
+}
+
+.timer_body {
+  width: 100%;
+  height: 74vh;
+  background: url(../images/bg-stars.svg);
+}
+
+.launch {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40%;
+  width: 100%;
+}
+
+h2 {
+  font-family: var(--font);
+  color: white;
+  letter-spacing: 0.5rem;
+  text-transform: uppercase;
+}
+
+.timer_footer {
+  width: 100%;
+  height: 24vh;
+  background: url(../images/pattern-hills.svg) no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.timer_footer svg {
+  margin: 0 1rem 0 1rem;
+}
+
+.timer_footer svg path:hover {
+  cursor: pointer;
+  fill: var(--numColor);
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.timer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.timer div {
+  display: flex;
+  flex-direction: column;
+}
+
+.timer .text {
+  width: 8rem;
+  height: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.3rem;
+  font-size: 0.8rem;
+  color: hsl(238, 17%, 61%);
+  margin: 0.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font);
+}
+
+.attribution {
+  font-size: 0.8rem;
+  color: wheat;
+  font-family: var(--font);
+  background-color: #2f2439;
+  height: 2vh;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.attribution a {
+  color: hsl(228, 16%, 64%);
+}
+
+.flip_card {
+  display: inline-flex;
+  flex-direction: column;
+  width: 8rem;
+  margin: 0.8rem;
+  position: relative;
+}
+
+.top,
+.bottom,
+.flip_card .bottom-flip,
+.flip_card .top-flip {
+  height: 3.5rem;
+  width: 8rem;
+  line-height: 1;
+  padding: 1.5rem;
+  font-size: 4rem;
+  overflow: hidden;
+  align-items: center;
+  color: var(--numColor);
+}
+
+.top,
+.flip_card .top-flip {
+  background-color: var(--upperCard);
+  border-top-right-radius: 0.5rem;
+  border-top-left-radius: 0.5rem;
+  position: relative;
+  color: hsl(345, 73%, 61%);
+}
+
+.bottom,
+.flip_card .bottom-flip {
+  background-color: var(--lowerCard);
+  justify-content: flex-end;
+  border-bottom-left-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+  position: relative;
+}
+
+.bottom {
+  box-shadow: 0 0.5rem 0 0 rgba(0, 0, 0, 0.164);
+}
+
+.top::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  margin: -0.55rem;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  background-color: var(--corner);
+  z-index: 3;
+}
+
+.top::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin: -0.55rem;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  background-color: var(--corner);
+  z-index: 3;
+}
+
+.bottom::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: -0.55rem;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  background-color: var(--corner);
+  z-index: 3;
+}
+
+.bottom::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: -0.55rem;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  background-color: var(--corner);
+  z-index: 3;
+}
+
+.flip_card .top-flip {
+  position: absolute;
+  animation: flip-top 250ms ease-in;
+  transform-origin: bottom;
+}
+
+@keyframes flip-top {
+  100% {
+    transform: rotateX(90deg);
+  }
+}
+
+.flip_card .bottom-flip {
+  position: absolute;
+  bottom: 0;
+  animation: flip-bottom 250ms ease-out 250ms;
+  transform-origin: top;
+  transform: rotateX(90deg);
+}
+
+@keyframes flip-bottom {
+  100% {
+    transform: rotateX(0deg);
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  h2 {
+    letter-spacing: 0.2rem;
+    font-size: 1.5rem;
+    padding: 3rem 2rem 0 2rem;
+    text-align: center;
+  }
+
+  .timer {
+    gap: 0.8rem;
+    margin-top: 2rem;
+  }
+
+  .top,
+  .bottom,
+  .flip_card .bottom-flip,
+  .flip_card .top-flip {
+    height: 2.5rem;
+    width: 4rem;
+    padding: 1.2rem;
+    font-size: 2.6rem;
+    font-weight: 700;
+    font-family: var(--font);
+  }
+
+  .flip_card {
+    width: 4rem;
+    margin: 0;
+  }
+
+  .timer div {
+    width: 4rem;
+  }
+
+  .timer .text {
+    width: 4rem;
+    height: 2rem;
+    letter-spacing: 0.1rem;
+    font-size: 0.5rem;
+    margin: 1rem 0 0 0;
+    font-weight: 500;
+  }
+
+  .top::before {
+    width: 0.8rem;
+    height: 0.8rem;
+  }
+
+  .top::after {
+    width: 0.8rem;
+    height: 0.8rem;
+  }
+
+  .bottom::before {
+    width: 0.8rem;
+    height: 0.8rem;
+  }
+
+  .bottom::after {
+    width: 0.8rem;
+    height: 0.8rem;
+  }
+
+  .timer_footer {
+    background-size: 1000px 150px;
+    background-position-x: 25%;
+  }
+
+  .timer_footer svg {
+    margin: 3rem 1rem 0 1rem;
+  }
+
+  .attribution {
+    font-size: 0.5rem;
+  }
+}
