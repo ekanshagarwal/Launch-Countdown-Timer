@@ -4,7 +4,7 @@ This is my solution to <strong>Launch countdown timer </strong> challenge by Fro
 <hr>
 
 <h3>Live Link</h3>
-<a href="https://ekanshagarwal.github.io/Launch-Countdown-Timer/">Click here</a>
+<a href="https://ekanshagarwal.github.io/Launch-Countdown-Timer/ target="_blank">Click here</a>
 <hr>
 
 <h3>Features</h3>
